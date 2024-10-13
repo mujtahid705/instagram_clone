@@ -13,14 +13,22 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import IgButton from "../components/ui/IgButton";
+import { useDispatch } from "react-redux";
+import { login } from "../redux/userSlice";
 
 const screenWidth = Dimensions.get("window").width;
 
 const LoginScreen = ({ navigation }) => {
+  const dispatch = useDispatch();
+
   const schema = Yup.object().shape({
     email: Yup.string().email().required(),
     password: Yup.string().min(5).required(),
   });
+
+  const loginHandler = (values) => {
+    dispatch(login(values));
+  };
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
@@ -32,7 +40,7 @@ const LoginScreen = ({ navigation }) => {
         <Formik
           initialValues={{ email: "", password: "" }}
           validationSchema={schema}
-          onSubmit={(values) => console.log(values)}
+          onSubmit={(values) => loginHandler(values)}
         >
           {({ handleChange, handleBlur, handleSubmit, values, errors }) => (
             <View>
