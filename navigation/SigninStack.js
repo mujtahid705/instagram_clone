@@ -5,9 +5,7 @@ const Stack = createNativeStackNavigator();
 
 const SigninStack = () => {
   return (
-    <Stack.Navigator
-    //   screenOptions={{ headerShown: false }}
-    >
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name="HomeScreen" component={HomeScreen} />
     </Stack.Navigator>
   );

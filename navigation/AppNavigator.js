@@ -8,8 +8,9 @@ const AppNavigator = () => {
 
   return (
     <NavigationContainer>
-      {!isLoggedin && <SignoutStack />}
-      {isLoggedin && <SigninStack />}
+      {/* {!isLoggedin && <SignoutStack />}
+      {isLoggedin && <SigninStack />} */}
+      <SigninStack />
     </NavigationContainer>
   );
 };

@@ -65,6 +65,7 @@ const LoginScreen = ({ navigation }) => {
               )}
 
               <IgButton title="Log in" onPress={handleSubmit} />
+
               <View style={styles.registerContainer}>
                 <Text style={styles.text}>Don't have an account?</Text>
                 <Pressable

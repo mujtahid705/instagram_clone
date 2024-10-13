@@ -76,6 +76,7 @@ const RegisterScreen = ({ navigation }) => {
               )}
 
               <IgButton title="Register" onPress={handleSubmit} />
+
               <View style={styles.registerContainer}>
                 <Text style={styles.text}>Already have an account?</Text>
                 <Pressable onPress={() => navigation.navigate("LoginScreen")}>
