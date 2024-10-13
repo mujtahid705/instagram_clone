@@ -16,10 +16,11 @@ import IgButton from "../components/ui/IgButton";
 
 const screenWidth = Dimensions.get("window").width;
 
-const LoginScreen = ({ navigation }) => {
+const RegisterScreen = ({ navigation }) => {
   const schema = Yup.object().shape({
     email: Yup.string().email().required(),
     password: Yup.string().min(5).required(),
+    name: Yup.string().min(3).required(),
   });
 
   return (
@@ -29,13 +30,22 @@ const LoginScreen = ({ navigation }) => {
           source={require("../assets/images/ig_logo_text.png")}
           style={styles.logo}
         />
+        <Text style={styles.mainTitle}>Create an Account</Text>
         <Formik
-          initialValues={{ email: "", password: "" }}
+          initialValues={{ email: "", password: "", name: "" }}
           validationSchema={schema}
           onSubmit={(values) => console.log(values)}
         >
           {({ handleChange, handleBlur, handleSubmit, values, errors }) => (
             <View>
+              <TextInput
+                placeholder="Name"
+                onChangeText={handleChange("name")}
+                onBlur={handleBlur("name")}
+                value={values.name}
+                style={styles.formInput}
+              />
+              {errors.name && <Text style={styles.error}>{errors.name}</Text>}
               <TextInput
                 placeholder="Email"
                 onChangeText={handleChange("email")}
@@ -56,13 +66,11 @@ const LoginScreen = ({ navigation }) => {
                 <Text style={styles.error}>{errors.password}</Text>
               )}
 
-              <IgButton title="Log in" onPress={handleSubmit} />
+              <IgButton title="Register" onPress={handleSubmit} />
               <View style={styles.registerContainer}>
-                <Text style={styles.text}>Don't have an account?</Text>
-                <Pressable
-                  onPress={() => navigation.navigate("RegisterScreen")}
-                >
-                  <Text style={styles.link}>Register</Text>
+                <Text style={styles.text}>Already have an account?</Text>
+                <Pressable onPress={() => navigation.navigate("LoginScreen")}>
+                  <Text style={styles.link}>Log in</Text>
                 </Pressable>
               </View>
             </View>
@@ -73,7 +81,7 @@ const LoginScreen = ({ navigation }) => {
   );
 };
 
-export default LoginScreen;
+export default RegisterScreen;
 
 const styles = StyleSheet.create({
   container: {
@@ -85,6 +93,10 @@ const styles = StyleSheet.create({
     width: 150,
     height: 75,
     resizeMode: "contain",
+  },
+  mainTitle: {
+    marginBottom: 10,
+    fontSize: 20,
   },
   formInput: {
     height: 40,
