@@ -1,22 +1,65 @@
 export const DUMMY_ACCOUNTS = [
   {
+    id: 1,
     name: "Muhammad Mujtahid",
     email: "mujtahid@gmail.com",
     password: "12345",
   },
   {
+    id: 2,
     name: "Midrar Khaled",
     email: "midrar@gmail.com",
     password: "12345",
   },
   {
+    id: 3,
     name: "Abtahi Tajwar",
     email: "abtahi@gmail.com",
     password: "12345",
   },
   {
+    id: 4,
     name: "John Doe",
     email: "john@gmail.com",
     password: "12345",
+  },
+];
+
+export const DUMMY_POSTS = [
+  {
+    id: 1,
+    name: "fcbarcelona",
+    location: "Camp Nou",
+    dp: require("../assets/images/barca_logo.png"),
+    image: require("../assets/images/barca_post.jpg"),
+    likes: ["519K", [1, 2]],
+    comments: "7.6K",
+    shares: "17.9K",
+    caption: "United we STAND",
+    time: "45 minutes",
+  },
+  {
+    id: 2,
+    name: "Muhammad Mujtahid",
+    location: "Gulshan, Dhaka",
+    dp: require("../assets/images/mujtahid_dp.jpg"),
+    image: require("../assets/images/mujtahid_post.jpg"),
+    likes: ["1.6K", []],
+    comments: "521",
+    shares: "385",
+    caption: "Fake it till you make it!",
+    time: "2 hours",
+  },
+  {
+    id: 3,
+    name: "Midrar Khaled",
+    location: "Lalkhan Bazar, Chattogram",
+    dp: require("../assets/images/midrar_dp.jpg"),
+    image: require("../assets/images/midrar_post.jpg"),
+    likes: ["5", [1, 2]],
+    comments: "1",
+    shares: "0",
+    caption: "Bhaiya dorja khulo",
+    time: "5 hours",
   },
 ];

@@ -3,47 +3,45 @@ import FontAwesome from "@expo/vector-icons/FontAwesome";
 import Entypo from "@expo/vector-icons/Entypo";
 import Feather from "@expo/vector-icons/Feather";
 import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
+import AntDesign from "@expo/vector-icons/AntDesign";
+import { useSelector } from "react-redux";
 
 const screenWidth = Dimensions.get("window").width;
-const Post = () => {
+const Post = ({ data }) => {
+  const currentUser = useSelector((state) => state.user.currentUser);
+
   return (
     <View>
       <View style={styles.header}>
         <View style={styles.nameContainer}>
-          <Image
-            source={require("../../assets/images/person2.jpg")}
-            style={styles.dpImg}
-          />
+          <Image source={data.dp} style={styles.dpImg} />
 
           <View>
-            <Text style={{ fontWeight: "bold" }}>fcbarcelona</Text>
-            <Text style={{ fontSize: 12 }}>Camp Nou</Text>
+            <Text style={{ fontWeight: "bold" }}>{data.name}</Text>
+            <Text style={{ fontSize: 12 }}>{data.location}</Text>
           </View>
         </View>
 
         <Entypo name="dots-three-horizontal" size={18} color="black" />
       </View>
 
-      <Image
-        source={require("../../assets/images/post_img.jpg")}
-        style={styles.postImg}
-      />
+      <Image source={data.image} style={styles.postImg} />
 
       <View style={styles.like_com_shar}>
         <View style={styles.interactions}>
           <View style={styles.icon_container}>
-            <FontAwesome6 name="heart" size={24} color="black" />
-            <Text style={styles.likeNum}>519K</Text>
+            <AntDesign name="hearto" size={24} color="black" />
+            <Text style={styles.likeNum}>{data.likes[0]}</Text>
           </View>
 
           <View style={styles.icon_container}>
             <FontAwesome6 name="comment" size={24} color="black" />
-            <Text style={styles.likeNum}>7,614</Text>
+            <Text style={styles.likeNum}>{data.comments}</Text>
           </View>
 
           <View style={styles.icon_container}>
             <Feather name="send" size={24} color="black" />
-            <Text style={styles.likeNum}>17.9K</Text>
+            <Text style={styles.likeNum}>{data.shares}</Text>
           </View>
         </View>
 
@@ -53,8 +51,8 @@ const Post = () => {
       </View>
 
       <View style={{ flexDirection: "row", gap: 5, paddingHorizontal: 10 }}>
-        <Text style={{ fontWeight: "bold" }}>fcbarcelona</Text>
-        <Text>What a view!</Text>
+        <Text style={{ fontWeight: "bold" }}>{data.name}</Text>
+        <Text>{data.caption}</Text>
       </View>
 
       <Text
@@ -75,7 +73,7 @@ const Post = () => {
           marginTop: 5,
         }}
       >
-        45 minutes ago
+        {data.time} ago
       </Text>
     </View>
   );
@@ -105,6 +103,7 @@ const styles = StyleSheet.create({
   postImg: {
     width: screenWidth,
     height: screenWidth,
+    // resizeMode: "contain",
   },
   like_com_shar: {
     flexDirection: "row",

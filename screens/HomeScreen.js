@@ -6,6 +6,7 @@ import { logout } from "../redux/userSlice";
 import Header from "../components/home/Header";
 import StorySection from "../components/home/StorySection";
 import Post from "../components/home/Post";
+import { DUMMY_POSTS } from "../data/dummyData";
 
 const HomeScreen = () => {
   const dispatch = useDispatch();
@@ -17,9 +18,9 @@ const HomeScreen = () => {
       <Header />
       <ScrollView>
         <StorySection />
-        <Post />
-        <Post />
-        <Post />
+        {DUMMY_POSTS.map((data, index) => (
+          <Post key={index} data={data} />
+        ))}
       </ScrollView>
       {/* <Button title="Logout" onPress={logoutHandler} /> */}
       {/* </SafeAreaView> */}
