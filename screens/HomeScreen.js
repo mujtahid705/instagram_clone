@@ -12,7 +12,8 @@ const HomeScreen = () => {
   const logoutHandler = () => dispatch(logout());
 
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <>
+      {/* <SafeAreaView style={{ flex: 1 }}> */}
       <Header />
       <ScrollView>
         <StorySection />
@@ -21,7 +22,8 @@ const HomeScreen = () => {
         <Post />
       </ScrollView>
       {/* <Button title="Logout" onPress={logoutHandler} /> */}
-    </SafeAreaView>
+      {/* </SafeAreaView> */}
+    </>
   );
 };
 

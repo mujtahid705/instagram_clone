@@ -2,6 +2,7 @@ import { View, Text, Image, StyleSheet, Dimensions } from "react-native";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import Entypo from "@expo/vector-icons/Entypo";
 import Feather from "@expo/vector-icons/Feather";
+import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
 
 const screenWidth = Dimensions.get("window").width;
 const Post = () => {
@@ -31,23 +32,23 @@ const Post = () => {
       <View style={styles.like_com_shar}>
         <View style={styles.interactions}>
           <View style={styles.icon_container}>
-            <FontAwesome name="heart-o" size={25} color="black" />
+            <FontAwesome6 name="heart" size={24} color="black" />
             <Text style={styles.likeNum}>519K</Text>
           </View>
 
           <View style={styles.icon_container}>
-            <FontAwesome name="comment-o" size={25} color="black" />
+            <FontAwesome6 name="comment" size={24} color="black" />
             <Text style={styles.likeNum}>7,614</Text>
           </View>
 
           <View style={styles.icon_container}>
-            <Feather name="send" size={25} color="black" />
+            <Feather name="send" size={24} color="black" />
             <Text style={styles.likeNum}>17.9K</Text>
           </View>
         </View>
 
         <View>
-          <FontAwesome name="bookmark-o" size={25} color="black" />
+          <FontAwesome name="bookmark-o" size={24} color="black" />
         </View>
       </View>
 
